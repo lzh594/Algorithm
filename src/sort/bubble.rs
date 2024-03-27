@@ -19,9 +19,9 @@ pub fn bubble_sort<T: PartialOrd>(array: &mut [T]) {
     if len <= 1 {
         return;
     }
-    for i in 0..len as usize {
+    for i in 0..len {
         let mut flag = false;
-        for j in 0..(len - i - 1) as usize {
+        for j in 0..(len - i - 1) {
             if array[j] > array[j + 1] {
                 array.swap(j, j + 1);
                 flag = true;
