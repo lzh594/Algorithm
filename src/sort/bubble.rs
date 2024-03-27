@@ -35,7 +35,6 @@ pub fn bubble_sort<T: PartialOrd>(array: &mut [T]) {
 
 #[cfg(test)]
 mod tests_bubble {
-    use crate::bubble;
     use super::*;
 
     #[test]

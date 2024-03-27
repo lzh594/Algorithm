@@ -10,11 +10,9 @@
 ///
 /// ```
 /// use algorithm::sort::quick_sort;
-/// fn test_numbers() {
-///     let mut nums = vec![21, 43, 555, 12, 43, 432, 8765, 132, 6543, 11, 0, 24321];
-///     quick_sort(&mut nums);
-///     assert_eq!(nums, vec![0, 11, 12, 21, 43, 43, 132, 432, 555, 6543, 8765, 24321]);
-///    }
+/// let mut nums = vec![21, 43, 555, 12, 43, 432, 8765, 132, 6543, 11, 0, 24321];
+/// quick_sort(&mut nums);
+/// assert_eq!(nums, vec![0, 11, 12, 21, 43, 43, 132, 432, 555, 6543, 8765, 24321]);
 /// ```
 pub fn quick_sort<T: PartialOrd>(array: &mut [T]) {
     let len = array.len();

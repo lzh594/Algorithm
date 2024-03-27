@@ -1,3 +1,19 @@
+/// 获取汉明距离
+///
+/// # Arguments
+///
+/// * `str_a`: 字符串a
+/// * `str_b`: 字符串b
+///
+/// returns: usize 汉明距离
+///
+/// # Examples
+///
+/// ```
+/// use algorithm::string::hamming_distance;
+/// let (str_a, str_b)=("123", "321");
+/// assert_eq!(hamming_distance(str_b,str_a), 1);
+/// ```
 pub fn hamming_distance(str_a: &str, str_b: &str) -> usize {
     if str_a.len() != str_b.len() {
         panic!("Strings must have the same length!");
@@ -33,7 +49,7 @@ mod test_hamming_distance {
     }
     #[test]
     #[should_panic]
-    fn test_panic(){
-        hamming_distance("","0");
+    fn test_panic() {
+        hamming_distance("", "0");
     }
 }

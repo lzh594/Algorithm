@@ -13,10 +13,8 @@ use std::cmp::Ordering;
 ///
 /// ```
 /// use algorithm::search::binary_search;
-/// fn test_strings() {
-///    let idx = binary_search(&"594", &vec!["11", "book", "12dzf", "594", "lzh"]);
-///    assert_eq!(idx, Some(3));
-///}
+/// let idx = binary_search(&"594", &vec!["11", "book", "12dzf", "594", "lzh"]);
+/// assert_eq!(idx, Some(3));
 /// ```
 pub fn binary_search<T: Ord>(target: &T, array: &[T]) -> Option<usize> {
     let mut left = 0;
@@ -47,10 +45,8 @@ pub fn binary_search<T: Ord>(target: &T, array: &[T]) -> Option<usize> {
 ///
 /// ```
 /// use algorithm::search::binary_search_rec;
-/// fn test_numbers() {
-///    let idx = binary_search_rec(&5, &vec![1, 2, 3, 4, 5],&0,&5);
-///    assert_eq!(idx, Some(4));
-///}
+/// let idx = binary_search_rec(&5, &vec![1, 2, 3, 4, 5],&0,&5);
+/// assert_eq!(idx, Some(4));
 /// ```
 pub fn binary_search_rec<T: Ord>(target: &T, array: &[T], low: &usize, high: &usize) -> Option<usize> {
     if low >= high {
