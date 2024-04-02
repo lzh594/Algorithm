@@ -104,7 +104,7 @@ impl<T> LinkedList<T> {
         unsafe {
             // Only have to do stuff if there is a front node to pop.
             self.front.map(|node| {
-                // Bring the Box back to life so we can move out its value and
+                // Bring the Box back to life, so we can move out its value and
                 // Drop it (Box continues to magically understand this for us).
                 let boxed_node = Box::from_raw(node.as_ptr());
                 let result = boxed_node.elem;
@@ -130,7 +130,7 @@ impl<T> LinkedList<T> {
         unsafe {
             // Only have to do stuff if there is a back node to pop.
             self.back.map(|node| {
-                // Bring the Box front to life so we can move out its value and
+                // Bring the Box front to life, so we can move out its value and
                 // Drop it (Box continues to magically understand this for us).
                 let boxed_node = Box::from_raw(node.as_ptr());
                 let result = boxed_node.elem;
@@ -177,7 +177,7 @@ impl<T> LinkedList<T> {
     }
 
     pub fn clear(&mut self) {
-        // Oh look it's drop again
+        // Oh, look! it's drop again
         while self.pop_front().is_some() {}
     }
 
@@ -283,8 +283,8 @@ impl<T: Hash> Hash for LinkedList<T> {
 }
 
 impl<'a, T> IntoIterator for &'a LinkedList<T> {
-    type IntoIter = Iter<'a, T>;
     type Item = &'a T;
+    type IntoIter = Iter<'a, T>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.iter()
@@ -336,8 +336,8 @@ impl<'a, T> ExactSizeIterator for Iter<'a, T> {
 }
 
 impl<'a, T> IntoIterator for &'a mut LinkedList<T> {
-    type IntoIter = IterMut<'a, T>;
     type Item = &'a mut T;
+    type IntoIter = IterMut<'a, T>;
 
     fn into_iter(self) -> Self::IntoIter {
         self.iter_mut()
@@ -389,8 +389,8 @@ impl<'a, T> ExactSizeIterator for IterMut<'a, T> {
 }
 
 impl<T> IntoIterator for LinkedList<T> {
-    type IntoIter = IntoIter<T>;
     type Item = T;
+    type IntoIter = IntoIter<T>;
 
     fn into_iter(self) -> Self::IntoIter {
         IntoIter { list: self }
@@ -654,7 +654,7 @@ impl<'a, T> CursorMut<'a, T> {
                 let in_back = input.back.take().unwrap();
 
                 if let Some(prev) = (*cur.as_ptr()).front {
-                    // General Case, no boundaries, just internal fixups
+                    // General Case, no boundaries, just internal fix-ups
                     (*prev.as_ptr()).back = Some(in_front);
                     (*in_front.as_ptr()).front = Some(prev);
                     (*cur.as_ptr()).front = Some(in_back);
@@ -716,7 +716,7 @@ impl<'a, T> CursorMut<'a, T> {
                 let in_back = input.back.take().unwrap();
 
                 if let Some(next) = (*cur.as_ptr()).back {
-                    // General Case, no boundaries, just internal fixups
+                    // General Case, no boundaries, just internal fix-ups
                     (*next.as_ptr()).front = Some(in_back);
                     (*in_back.as_ptr()).back = Some(next);
                     (*cur.as_ptr()).back = Some(in_front);
@@ -982,15 +982,15 @@ mod test {
     fn test_eq() {
         let mut n: LinkedList<u8> = list_from(&[]);
         let mut m = list_from(&[]);
-        assert!(n == m);
+        assert_eq!(n, m);
         n.push_front(1);
-        assert!(n != m);
+        assert_ne!(n, m);
         m.push_back(1);
-        assert!(n == m);
+        assert_eq!(n, m);
 
         let n = list_from(&[2, 3, 4]);
         let m = list_from(&[1, 2, 3]);
-        assert!(n != m);
+        assert_ne!(n, m);
     }
 
     #[test]
