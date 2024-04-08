@@ -4,3 +4,4 @@ pub mod string;
 pub mod conversions;
 pub mod backtracking;
 pub mod data_structures;
+pub mod geometry;
