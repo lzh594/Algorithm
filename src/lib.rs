@@ -6,3 +6,4 @@ pub mod backtracking;
 pub mod data_structures;
 pub mod geometry;
 pub mod compression;
+pub mod machine_learning;
