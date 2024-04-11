@@ -8,3 +8,4 @@ authors = ["£· <liuzh594@qq.com>"]
 [dependencies]
 num-traits = "0.2.18"
 num-bigint = "0.4.4"
+rand = "0.9.0-alpha.1"
