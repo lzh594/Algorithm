@@ -1,5 +1,5 @@
-pub fn fast_power(mut base: usize, mut power: usize, modulus: usize) -> usize {
-    let mut res: usize = 1;
+pub fn fast_power(mut base: u128, mut power: u128, modulus: u128) -> u128 {
+    let mut res: u128 = 1;
     if modulus == 0 {
         while power > 0 {
             if power & 1 == 1 {

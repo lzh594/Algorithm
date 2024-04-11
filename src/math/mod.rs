@@ -1,7 +1,7 @@
 pub mod combinations;
 pub mod gcd;
 pub mod number_theory;
-pub mod matrix;
+pub mod prime;
 
 pub use number_theory::fast_power::fast_power;
 pub use number_theory::egcd::egcd;
