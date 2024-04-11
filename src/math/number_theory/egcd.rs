@@ -1,24 +1,21 @@
 use std::mem::swap;
 
-// def Egcd(a: int, b: int) -> list:
-// """
-//     扩展欧拉算法:au+bv=g
-//     :param a:
-//     :param b:
-//     :return: x = [g, u, v]
-//     """
-// if type_check(a, int) and type_check(b, int):
-// pass
-// x = [a, 1, 0]
-// y = [b, 0, 1]
-// while y[0] != 0:
-// q = x[0] // y[0]
-// for i in range(0, 3):
-// x[i] = x[i] - q * y[i]
-// tmp = x[:]
-// x = y[:]
-// y = tmp[:]
-// return x
+
+/// 扩展欧式算法
+///
+/// # Arguments
+///
+/// * `a`:
+/// * `b`:
+///
+/// returns: (i64, i64, i64) = (g, u, v)
+///
+/// # Examples
+///
+/// ```
+/// use algorithm::math::number_theory::egcd::egcd;
+/// assert_eq!(egcd(50, 70), (10, 3, -2));
+/// ```
 pub fn egcd(a: i64, b: i64) -> (i64, i64, i64) {
     let mut x = vec![a, 1, 0];
     let mut y = vec![b, 0, 1];
