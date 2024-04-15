@@ -12,7 +12,7 @@
 /// ```
 /// use algorithm::string::hamming_distance;
 /// let (str_a, str_b)=("123", "321");
-/// assert_eq!(hamming_distance(str_b,str_a), 1);
+/// assert_eq!(hamming_distance(str_b,str_a), 2);
 /// ```
 pub fn hamming_distance(str_a: &str, str_b: &str) -> usize {
     if str_a.len() != str_b.len() {
