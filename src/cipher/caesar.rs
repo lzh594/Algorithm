@@ -10,10 +10,10 @@
 /// # Examples
 ///
 /// ```
-/// use algorithm::cipher::encode;
-/// assert_eq!(encode("attack at dawn 攻", 5), "fyyfhp fy ifbs 攻");
+/// use algorithm::cipher::caesar_encode;
+/// assert_eq!(caesar_encode("attack at dawn 攻", 5), "fyyfhp fy ifbs 攻");
 /// ```
-pub fn encode(message: &str, shift: u8) -> String {
+pub fn caesar_encode(message: &str, shift: u8) -> String {
     message.chars()
         .map(|m| {
             if m.is_ascii_alphabetic() {
@@ -37,10 +37,10 @@ pub fn encode(message: &str, shift: u8) -> String {
 /// # Examples
 ///
 /// ```
-/// use algorithm::cipher::decode;
-/// assert_eq!(decode("fyyfhp fy ifbs 攻", 5), "attack at dawn 攻");
+/// use algorithm::cipher::caesar_decode;
+/// assert_eq!(caesar_decode("fyyfhp fy ifbs 攻", 5), "attack at dawn 攻");
 /// ```
-pub fn decode(cipher: &str, shift: u8) -> String {
+pub fn caesar_decode(cipher: &str, shift: u8) -> String {
     cipher.chars()
         .map(|c| {
             if c.is_ascii_alphabetic() {
@@ -55,19 +55,19 @@ pub fn decode(cipher: &str, shift: u8) -> String {
 
 #[cfg(test)]
 mod tests {
-    use crate::cipher::caesar::{decode, encode};
+    use crate::cipher::caesar::{caesar_decode, caesar_encode};
 
     #[test]
     fn test_encode() {
-        assert_eq!(encode("", 13), "");
-        assert_eq!(encode("rust", 13), "ehfg");
-        assert_eq!(encode("attack at dawn 攻", 5), "fyyfhp fy ifbs 攻");
+        assert_eq!(caesar_encode("", 13), "");
+        assert_eq!(caesar_encode("rust", 13), "ehfg");
+        assert_eq!(caesar_encode("attack at dawn 攻", 5), "fyyfhp fy ifbs 攻");
     }
 
     #[test]
     fn test_decode() {
-        assert_eq!(decode("", 13), "");
-        assert_eq!(decode("ehfg", 13), "rust");
-        assert_eq!(decode("fyyfhp fy ifbs 攻", 5), "attack at dawn 攻");
+        assert_eq!(caesar_decode("", 13), "");
+        assert_eq!(caesar_decode("ehfg", 13), "rust");
+        assert_eq!(caesar_decode("fyyfhp fy ifbs 攻", 5), "attack at dawn 攻");
     }
 }
