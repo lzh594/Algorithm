@@ -8,3 +8,4 @@ pub mod geometry;
 pub mod compression;
 pub mod machine_learning;
 pub mod math;
+pub mod cipher;
